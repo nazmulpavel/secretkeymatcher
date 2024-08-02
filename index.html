@@ -9,12 +9,50 @@
 <body class="container">
     <div class="password generator">
         <!-- <h1>Left Side</h1> -->
-        <button class="secretBtn">Generate  Secret Key</button>
-        <div class="secretValue">975599</div>
+        <button onclick="generateRandomNumber(111111,999999)" class="secretBtn" id = "secretBtn">Generate  Secret Key</button>
+        <div class="secretValue" id = "secretText"></div>
 
     </div>
     <div class="password match"">
-        <h1>Right Side</h1>
+        <div class ="headerDisplay">
+            <div class="enterPin">Enter Pin:</div>
+            <input type="text" class="displayText" id="textField" placeholder="Enter your pin">
+        </div>
+        <div class="inputArea"> 
+            <button onclick="btnPressed()" class="btn general" id ="btn">1</button>
+            <button onclick="btnPressed()" class="btn general" id ="btn">2</button>
+            <button onclick="btnPressed()" class="btn general" id ="btn">3</button>
+            <button onclick="btnPressed()" class="btn general" id ="btn">4</button>
+            <button onclick="btnPressed()" class="btn general" id ="btn">5</button>
+            <button onclick="btnPressed()" class="btn general" id ="btn">6</button>
+            <button onclick="btnPressed()" class="btn general" id ="btn">7</button>
+            <button onclick="btnPressed()" class="btn general" id ="btn">8</button>
+            <button onclick="btnPressed()" class="btn general" id ="btn">9</button>
+            <button onclick="btnPressed()" class="btn general" id ="btn">0</button>
+            <button onclick="btnPressed()" class="btn general" id ="btn">x</button>
+            <button onclick="btnPressed()" class="btn general" id ="btn">Submit</button>
+            <button onclick="btnPressed()" class="btn general" id ="submitBtn">Clear</button>
+
+        </div>
     </div>
 </body>
+
+<script>
+
+let presentRandomNumber;  
+function btnPressed(){
+    console.log(document.getElementById('textField').innerText);
+    if (presentRandomNumber = document.getElementById('textField').innerText){
+        console.log('khela hobe');
+    }
+}
+function generateRandomNumber(min,max){
+    console.log('hello');
+    presentRandomNumber = Math.floor(Math.random() * (max - min + 1) ) + min;
+    console.log(presentRandomNumber);
+    document.getElementById('secretText').innerHTML = presentRandomNumber;
+}
+ 
+</script>
+
 </html>
