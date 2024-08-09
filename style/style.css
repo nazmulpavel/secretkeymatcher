@@ -55,11 +55,20 @@
 .btn {
     padding: 15px 25px;
     background-color: #333333;
-    border-radius: 5px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.3);
     color: white;
     font-size: small;
     text-align: center;
-    font-weight: 100;
+    font-weight: 200;
+}.btn.submit{
+    background-color: green;
+    padding: 15px 10px;
+
+}.btn.clear{
+    background-color: red;
+    padding: 15px 10px;
+
 }
 
 .match {
@@ -93,12 +102,9 @@
     display: grid;
     justify-content: center;
     align-items: center;
-    grid-template-columns: 15% 15% 15% 15%;
-    /* grid-template-rows: 25% 25% 25% 25%; */
+    grid-template-columns: 14% 14% 14% 14%;
     gap: 5px;
-    /* grid-template-columns: 40px 40px 40px 40px;
-    grid-template-rows: 40px 40px 40px 40px; */
-    /* background-color: aliceblue; */
+
 }
 
 .enterPin {
@@ -167,7 +173,7 @@
     .generator {
 
         width: 100%;
-        height: 50vh;
+        height: 60vh;
 
     }
 
@@ -182,10 +188,19 @@
         display: grid;
         justify-content: center;
         align-items: center;
-        grid-template-columns: 15% 15% 15%;
+        grid-template-columns: 13% 13% 13%;
         gap: 5px;
     }
-
+    .btn.submit{
+        background-color: green;
+        padding: 15px 5px;
+    
+    }
+    .btn.clear{
+        background-color: red;
+        padding: 15px 5px;
+    
+    }
     .toastBox {
         /* background-color: green;
         color: aqua; */
@@ -194,7 +209,7 @@
     .toast {
         width: 400px;
         height: 60px;
-        background-color: #fff;
+        background-color: #929292;
         font-weight: 500;
         display: flex;
         align-items: center;
