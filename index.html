@@ -1,58 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secret Key Matcher</title>
     <link rel="stylesheet" href="style/style.css">
 </head>
+
 <body class="container">
     <div class="password generator">
         <!-- <h1>Left Side</h1> -->
-        <button onclick="generateRandomNumber(111111,999999)" class="secretBtn" id = "secretBtn">Generate  Secret Key</button>
-        <div class="secretValue" id = "secretText"></div>
+        <button onclick="generateRandomNumber(111111,999999)" class="secretBtn" id="secretBtn">Generate Secret
+            Key</button>
+        <div class="secretValue" id="secretText"></div>
 
     </div>
     <div class="password match"">
-        <div class ="headerDisplay">
-            <div class="enterPin">Enter Pin:</div>
-            <input type="text" class="displayText" id="textField" placeholder="Enter your pin">
-        </div>
-        <div class="inputArea"> 
-            <button onclick="btnPressed()" class="btn general" id ="btn">1</button>
-            <button onclick="btnPressed()" class="btn general" id ="btn">2</button>
-            <button onclick="btnPressed()" class="btn general" id ="btn">3</button>
-            <button onclick="btnPressed()" class="btn general" id ="btn">4</button>
-            <button onclick="btnPressed()" class="btn general" id ="btn">5</button>
-            <button onclick="btnPressed()" class="btn general" id ="btn">6</button>
-            <button onclick="btnPressed()" class="btn general" id ="btn">7</button>
-            <button onclick="btnPressed()" class="btn general" id ="btn">8</button>
-            <button onclick="btnPressed()" class="btn general" id ="btn">9</button>
-            <button onclick="btnPressed()" class="btn general" id ="btn">0</button>
-            <button onclick="btnPressed()" class="btn general" id ="btn">x</button>
-            <button onclick="btnPressed()" class="btn general" id ="btn">Submit</button>
-            <button onclick="btnPressed()" class="btn general" id ="submitBtn">Clear</button>
+        <div class =" headerDisplay">
+        <div class="enterPin">Enter Pin:</div>
+        <input type="text" class="displayText" id="textField" placeholder="Enter your pin">
+    </div>
+    <div class="inputArea">
 
-        </div>
+        <button onclick="btnPressed(this)" class="btn general" id="btn">1</button>
+        <button onclick="btnPressed(this)" class="btn general" id="btn">2</button>
+        <button onclick="btnPressed(this)" class="btn general" id="btn">3</button>
+        <button onclick="btnPressed(this)" class="btn general" id="btn">4</button>
+        <button onclick="btnPressed(this)" class="btn general" id="btn">5</button>
+        <button onclick="btnPressed(this)" class="btn general" id="btn">6</button>
+        <button onclick="btnPressed(this)" class="btn general" id="btn">7</button>
+        <button onclick="btnPressed(this)" class="btn general" id="btn">8</button>
+        <button onclick="btnPressed(this)" class="btn general" id="btn">9</button>
+        <button onclick="btnPressed(this)" class="btn general" id="btn">0</button>
+        <button onclick="btnPressed(this)" class="btn general" id="btn">x</button>
+        <button onclick="btnPressed(this)" class="btn general" id="btn">Submit</button>
+        <button onclick="btnPressed(this)" class="btn general" id="submitBtn">Clear</button>
+
+    </div>
     </div>
 </body>
 
 <script>
 
-let presentRandomNumber;  
-function btnPressed(){
-    console.log(document.getElementById('textField').innerText);
-    if (presentRandomNumber = document.getElementById('textField').innerText){
-        console.log('khela hobe');
+
+    let presentRandomNumber;
+    let calculatorString = "";
+
+    function btnPressed(btnId) {
+        // delete last digit
+        if (btnId.innerText == "x") {
+            calculatorString = calculatorString.substring(0, calculatorString.length - 1);
+        } else if (btnId.innerText == "Clear") {
+            calculatorString = "";
+        } else if (btnId.innerText == "Submit") {
+            if (presentRandomNumber == calculatorString) {
+                console.log('Congratulation');
+                alert("Congratulation!!!");
+                calculatorString = "";
+            }else{
+                console.log('Not matched');
+                alert("Sorry, Not matched!!!");
+            }
+        } else {
+            if (calculatorString.length < 6) {
+                calculatorString += btnId.innerText;
+            }
+        }
+        console.log(calculatorString);
+        document.getElementById('textField').value = calculatorString;
     }
-}
-function generateRandomNumber(min,max){
-    console.log('hello');
-    presentRandomNumber = Math.floor(Math.random() * (max - min + 1) ) + min;
-    console.log(presentRandomNumber);
-    document.getElementById('secretText').innerHTML = presentRandomNumber;
-}
- 
+    
+    function generateRandomNumber(min, max) {
+        console.log('hello');
+        presentRandomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+        console.log(presentRandomNumber);
+        document.getElementById('secretText').innerHTML = presentRandomNumber;
+    }
+
 </script>
 
 </html>
