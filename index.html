@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secret Key Matcher</title>
     <link rel="stylesheet" href="style/style.css">
+    <script src="https://kit.fontawesome.com/96af9aeb88.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body class="container">
@@ -38,6 +40,7 @@
         <button onclick="btnPressed(this)" class="btn general" id="submitBtn">Clear</button>
 
     </div>
+    <div id="toastBox"></div>
     </div>
 </body>
 
@@ -48,21 +51,30 @@
     let calculatorString = "";
 
     function btnPressed(btnId) {
-        // delete last digit
+
         if (btnId.innerText == "x") {
             calculatorString = calculatorString.substring(0, calculatorString.length - 1);
-        } else if (btnId.innerText == "Clear") {
+        }
+        else if (btnId.innerText == "Clear") {
             calculatorString = "";
-        } else if (btnId.innerText == "Submit") {
-            if (presentRandomNumber == calculatorString) {
-                console.log('Congratulation');
-                alert("Congratulation!!!");
-                calculatorString = "";
-            }else{
-                console.log('Not matched');
-                alert("Sorry, Not matched!!!");
+        }
+        else if (btnId.innerText == "Submit") {
+            if (calculatorString.length == 6) {
+                if (presentRandomNumber == calculatorString) {
+                    console.log('Congratulation');
+                    // alert("Congratulation!!!");
+                    showToastBox("<i class='fa-solid fa-circle-check'></i>Your Secret Key is Matched!!");
+                    calculatorString = "";
+                } else {
+                    console.log('Not matched');
+                    showToastBox("<i class='fa-solid fa-circle-xmark'></i>Sorry, Your Secret Key not Matched!!");
+                }
+            } else {
+                console.log('Invalid');
+                showToastBox("<i class='fa-solid fa-circle-exclamation'></i>Invalid input");
             }
-        } else {
+        }
+        else {
             if (calculatorString.length < 6) {
                 calculatorString += btnId.innerText;
             }
@@ -70,12 +82,30 @@
         console.log(calculatorString);
         document.getElementById('textField').value = calculatorString;
     }
-    
+
     function generateRandomNumber(min, max) {
         console.log('hello');
         presentRandomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
         console.log(presentRandomNumber);
         document.getElementById('secretText').innerHTML = presentRandomNumber;
+    }
+
+    let toastBox = document.getElementById('toastBox');
+
+    function showToastBox(msg) {
+        let toast = document.createElement('div');
+        toast.classList.add("toast");
+        toast.innerHTML = msg;
+        toastBox.appendChild(toast);
+        if (msg.includes('Sorry')) {
+            toast.classList.add('error');
+        } else if (msg.includes('Invalid')) {
+            toast.classList.add('invalid')
+        }
+        setTimeout(() => {
+            toast.remove();
+        }, 4000);
+
     }
 
 </script>

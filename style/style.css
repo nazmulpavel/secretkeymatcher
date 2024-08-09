@@ -1,14 +1,15 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-.container{
+.container {
     display: flex;
 
 }
-.password{
+
+.password {
     width: 50%;
     height: 60vh;
     display: flex;
@@ -17,8 +18,8 @@
     background-color: black;
 }
 
-.generator{
-    
+.generator {
+
     width: full;
     display: flex;
     flex-direction: column;
@@ -28,7 +29,8 @@
 
 
 }
-.secretBtn{
+
+.secretBtn {
     background-color: #007bff;
     color: white;
     font-size: small;
@@ -38,7 +40,8 @@
     height: 50px;
     border: none;
 }
-.secretValue{
+
+.secretValue {
     width: 150px;
     height: 40px;
     color: white;
@@ -48,7 +51,8 @@
     border-radius: 5px;
     padding-top: 10px;
 }
-.btn{
+
+.btn {
     padding: 15px 25px;
     background-color: #333333;
     border-radius: 5px;
@@ -57,7 +61,8 @@
     text-align: center;
     font-weight: 100;
 }
-.match{
+
+.match {
     width: full;
     display: flex;
     flex-direction: column;
@@ -65,43 +70,48 @@
     align-items: center;
 
 }
-.general{
+
+.general {
     /* grid-column-start: 1;
     grid-column-end: 4; */
-    
+
 }
-.headerDisplay{
+
+.headerDisplay {
     width: 100%;
     height: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:black;
+    background-color: black;
 }
-.inputArea{
+
+.inputArea {
 
     width: 100%;
     height: 100%;
     display: grid;
     justify-content: center;
     align-items: center;
-    grid-template-columns: 15% 15% 15% 15% ;
+    grid-template-columns: 15% 15% 15% 15%;
     /* grid-template-rows: 25% 25% 25% 25%; */
     gap: 5px;
     /* grid-template-columns: 40px 40px 40px 40px;
     grid-template-rows: 40px 40px 40px 40px; */
     /* background-color: aliceblue; */
 }
-.enterPin{
+
+.enterPin {
     /* width: 150px;
     height: 40px; */
     margin-right: 20px;
     color: white;
 }
-.displayText{
+
+.displayText {
     width: 150px;
     height: 40px;
-    background-color: #333333 ;
+    background-color: #333333;
     color: white;
     font-size: medium;
     text-align: center;
@@ -109,33 +119,104 @@
     border-radius: 5px;
 }
 
- /* for small device*/
+.toastBox {
+    background-color: #fff;
+    /* color: aqua; */
+}
 
- @media screen and (max-width: 576px) {
+.toast {
+    width: 400px;
+    height: 60px;
+    background-color: #fff;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
 
-    
-    .password{
+.toast i {
+    margin: 0 20px;
+    font-size: 35px;
+    color: green;
+}
+
+.toast.error i {
+    margin: 0 20px;
+    font-size: 35px;
+    color: red;
+}
+
+.toast.invalid i {
+    margin: 0 20px;
+    font-size: 35px;
+    color: yellow;
+}
+
+/* for small device*/
+
+@media screen and (max-width: 576px) {
+
+
+    .password {
         width: 100%;
         height: 40vh;
     }
-    .generator{
-    
+
+    .generator {
+
         width: 100%;
         height: 50vh;
-    
+
     }
-    .container{
+
+    .container {
         display: flex;
         flex-direction: column;
     }
-    .inputArea{
+
+    .inputArea {
         width: 100%;
         height: 100%;
         display: grid;
         justify-content: center;
         align-items: center;
-        grid-template-columns: 15% 15% 15%  ;
+        grid-template-columns: 15% 15% 15%;
         gap: 5px;
     }
-    
+
+    .toastBox {
+        /* background-color: green;
+        color: aqua; */
+    }
+
+    .toast {
+        width: 400px;
+        height: 60px;
+        background-color: #fff;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        margin: 15px 0;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .toast i {
+        margin: 0 20px;
+        font-size: 35px;
+        color: green;
+    }
+
+    .toast.error i {
+        margin: 0 20px;
+        font-size: 35px;
+        color: red;
+    }
+
+    .toast.invalid i {
+        margin: 0 20px;
+        font-size: 35px;
+        color: yellow;
+    }
 }
